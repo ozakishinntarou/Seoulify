@@ -1,0 +1,276 @@
+@charset "utf-8";
+$color-black: #32353C;
+$color-cha: #B79B6C;
+$color-grey: #F4F4F4;
+
+@mixin inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: (800/900)*100%;
+    max-width: 1200px;
+}
+
+@mixin flex ($a: center, $j: space-between) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: $a;
+    justify-content: $j;
+}
+
+@mixin btn {
+    display: block;
+    background-color: $color-black;
+    width: 185px;
+    padding: 24px 51px;
+    text-align: center;
+}
+
+@mixin pc () {
+    @media (min-width :1200px) {
+        @content;
+    }
+}
+
+html {
+    font-size: (14/16*100%);
+}
+
+body {
+    font-family: Helvetica, sans-serif, Arial, ;
+    color: $color-black;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .8);
+    padding: (32/14)+em;
+
+    &__inner {
+        @include inner;
+        @include flex();
+    }
+
+    &__menu {
+        @include flex();
+    }
+
+    &__li {
+        list-style: none;
+        margin-left: (32/14)+em;
+        font-weight: bold;
+
+        &--cha {
+            color: $color-cha;
+        }
+    }
+
+}
+
+.footer {
+    background-color: $color-black;
+    color: #fff;
+    text-align: center;
+
+    &__inner {
+        @include inner;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: (84/14)+em 0;
+    }
+
+    &__text {
+        margin-top: (14/14)+em
+    }
+
+    &__copy {
+        font-size: (14/14*100%);
+    }
+
+}
+
+
+
+
+
+
+.from {
+
+    &__inner {
+        @include inner;
+
+        @include pc() {
+            @include flex()
+        }
+
+    }
+
+    &__item {
+        padding-top: (84/14)+em;
+        padding-bottom: (84/14)+em;
+
+        &--chenge {
+            @include pc {
+                @include flex();
+                flex-direction: row-reverse
+            }
+        }
+    }
+
+    &__bg {
+        background-color: $color-grey ;
+    }
+
+}
+
+.unit {
+    @include pc() {
+        width: (360/1200*100%);
+    }
+
+    &__catch {
+        margin-bottom: (28/14)+em;
+    }
+
+    &__title {
+        font-size: (32/14*100%);
+        margin-bottom: (42/32)+em;
+    }
+
+    &__money {
+        color: $color-cha;
+    }
+
+    &__btn {
+        @include btn;
+        margin-bottom: (56/14)+em;
+
+        &--white {
+            color: #fff;
+        }
+
+        &--mg {
+            margin: 0
+        }
+    }
+}
+
+.card {
+    @include flex();
+
+    &__item {
+        width: (370/800*100%);
+
+    }
+
+    &__catch {
+        margin-top: (28/14)+em;
+        margin-bottom: (21/14)+em;
+    }
+
+    &__title {
+        font-size: (21/14)*100%;
+        font-weight: bold;
+    }
+
+    &__money {
+        font-size: (21/14)*100%;
+        color: $color-cha;
+        margin-top: (10/14)+em;
+        font-weight: bold;
+    }
+}
+
+.inst {
+    text-align: center;
+    margin-top: (87/14)+em;
+    margin-bottom: (84/14)+em;
+
+    &__inner {
+        @include inner;
+    }
+
+    &__title {
+        font-size: (32/14*100%);
+        margin-bottom: (48/32)+em;
+    }
+
+    &__box {
+        @include flex;
+    }
+
+    &__pic {
+        @include pc {
+            width: (270/1200*100%);
+        }
+
+
+    }
+
+    &__pic2 {
+        margin-top: (56/14)+em;
+
+        @include pc {
+            margin: 0;
+            width: (270/1200*100%);
+        }
+    }
+}
+
+.bana {
+    background-color: $color-grey;
+
+    &__inner {
+        @include inner();
+        padding: (84/14)+em 0;
+
+        @include pc {
+            @include flex();
+        }
+    }
+
+    &__item1 {
+        background: url(./images/bg_post01.png)no-repeat center/cover;
+        color: #fff;
+        margin-bottom: (56/14)+em;
+
+
+        &--pd {
+            padding: (112/14)+em (42/14)+em;
+        }
+
+        @include pc {
+            width: (760/1200*100%);
+            margin: 0;
+        }
+    }
+
+    &__item2 {
+        background-color: $color-cha;
+        color: #fff;
+
+        @include pc {
+            width: (380/1200*100%);
+        }
+
+        &--pd {
+            padding: (112/14)+em (42/14)+em;
+
+        }
+    }
+
+
+
+
+}
